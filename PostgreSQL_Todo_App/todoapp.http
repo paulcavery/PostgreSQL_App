@@ -1,0 +1,46 @@
+###
+GET http://localhost:5000
+
+###
+POST http://localhost:5000/auth/register
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "testuserpass"
+}
+
+###
+POST http://localhost:5000/auth/login
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "testuserpass"
+}
+###
+GET http://localhost:5000/todos
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYxNzIyMjM1LCJleHAiOjE3NjE4MDg2MzV9.ePn-1y7l-l75BoE2lMdxlWsvG-y7FpB4DLopxlHmCS0
+###
+POST http://localhost:5000/todos
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYxNzIyMjM1LCJleHAiOjE3NjE4MDg2MzV9.ePn-1y7l-l75BoE2lMdxlWsvG-y7FpB4DLopxlHmCS0
+Content-Type: application/json
+
+{
+  "task": "Buy groceries"
+}
+
+### Modify Todos    
+PUT http://localhost:5000/todos/2 (protected)
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYxNzIyMjM1LCJleHAiOjE3NjE4MDg2MzV9.ePn-1y7l-l75BoE2lMdxlWsvG-y7FpB4DLopxlHmCS0
+Content-Type: application/json
+
+{
+  "task": "Buy groceries and cook dinner",
+  "completed": 1
+}
+
+### Delete Todo
+DELETE http://localhost:5000/todos/2 (protected)
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYxNzIyMjM1LCJleHAiOjE3NjE4MDg2MzV9.ePn-1y7l-l75BoE2lMdxlWsvG-y7FpB4DLopxlHmCS0
+Content-Type: application/json
