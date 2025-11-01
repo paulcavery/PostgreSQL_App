@@ -1,21 +1,20 @@
-#Use an official node runtime as a parent image
+# Use an official node.js runtime as a parent image
 FROM node:22-alpine
 
-
-#Set the working directory to /app
+# Set the working directory in the container
 WORKDIR /app
 
-#copy package.json and package-lock.json to the container
-COPY package*.json ./
+# Copy the package.json and the package-lock.json files to the container
+COPY package*.json .
 
-#Install any needed packages specified in package.json
+# Install the dependencies
 RUN npm install
 
-#Copy the rest of the application code to the container
+# Copy the rest of the application code
 COPY . .
 
-#Make port 5000 available to the world outside this container
-EXPOSE 5000
+# Expose the port that the app runs on
+EXPOSE 5003
 
-#Define commmand to run the app
+# Define the command to run your application
 CMD ["node", "./src/server.js"]

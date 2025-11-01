@@ -1,6 +1,5 @@
 import express from 'express';
 import prisma from '../prismaClient.js';
-import { use } from 'react';
 
 
 const router = express.Router();
